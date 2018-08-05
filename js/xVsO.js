@@ -1,12 +1,49 @@
 
-var c1 =document.getElementById("c1");
+var p = "X";
 
-c1.onclick = function(){c1.innerHTML = "X"};
-document.getElementById("c2").onclick = function(){alert("c2")};
-document.getElementById("c3").onclick = function(){alert("c3")};
-document.getElementById("c4").onclick = function(){alert("c4")};
-document.getElementById("c5").onclick = function(){alert("c5")};
-document.getElementById("c6").onclick = function(){alert("c6")};
-document.getElementById("c7").onclick = function(){alert("c7")};
-document.getElementById("c8").onclick = function(){alert("c8")};
-document.getElementById("c9").onclick = function(){alert("c9")};
+function jucator(){
+	if (p=="X"){
+		p="0";
+	} else {
+		p="X";
+	}
+}
+
+for (n = 1;n <= 9; n++) {
+	var str1 = "c"+n;
+	var str1= document.getElementById(str1);
+	str1.onclick = function(){
+		if(this.innerHTML != "X" && this.innerHTML !="0"){
+		this.innerHTML = p;
+
+		castigator();
+		jucator();
+
+		};
+	};
+}
+
+function castigator(){
+	if(
+		(c1.innerHTML == p && c2.innerHTML == p && c3.innerHTML == p ) ||
+		
+		(c4.innerHTML == p && c5.innerHTML == p && c6.innerHTML == p ) ||
+
+		(c7.innerHTML == p && c8.innerHTML == p && c9.innerHTML == p ) ||
+
+		(c1.innerHTML == p && c5.innerHTML == p && c9.innerHTML == p ) ||
+
+		(c3.innerHTML == p && c5.innerHTML == p && c7.innerHTML == p ) ||
+
+		(c1.innerHTML == p && c4.innerHTML == p && c7.innerHTML == p ) ||
+
+		(c2.innerHTML == p && c5.innerHTML == p && c8.innerHTML == p ) ||
+
+		(c3.innerHTML == p && c6.innerHTML == p && c9.innerHTML == p ) 
+
+		) {
+		document.getElementById("table").innerHTML = p ;
+	}
+}
+
+
